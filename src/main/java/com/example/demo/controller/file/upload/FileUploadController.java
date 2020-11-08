@@ -26,7 +26,7 @@ public class FileUploadController {
             return "/file/upload";
         }
 
-        Path pathOfFileUpload = Paths.get("C:\\Users\\sugio\\IdeaProjects\\demo\\file\\upload");
+        Path pathOfFileUpload = Paths.get("C:\\demo\\file\\upload");
         if (!Files.exists(pathOfFileUpload)) {
             try {
                 Files.createDirectory(pathOfFileUpload);
