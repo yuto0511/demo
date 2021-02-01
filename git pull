@@ -1,0 +1,61 @@
+[1mdiff --git a/demo.iml b/demo.iml[m
+[1mindex 1ff7d53..c51d9d2 100644[m
+[1m--- a/demo.iml[m
+[1m+++ b/demo.iml[m
+[36m@@ -11,6 +11,9 @@[m
+     </content>[m
+     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />[m
+     <orderEntry type="sourceFolder" forTests="false" />[m
+[32m+[m[32m    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-core:2.14.0" level="project" />[m
+[32m+[m[32m    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.13.3" level="project" />[m
+[32m+[m[32m    <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />[m
+     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:2.3.3.RELEASE" level="project" />[m
+     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.3.3.RELEASE" level="project" />[m
+     <orderEntry type="library" name="Maven: org.springframework:spring-context:5.2.8.RELEASE" level="project" />[m
+[36m@@ -19,7 +22,6 @@[m
+     <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:1.2.3" level="project" />[m
+     <orderEntry type="library" name="Maven: ch.qos.logback:logback-core:1.2.3" level="project" />[m
+     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-to-slf4j:2.13.3" level="project" />[m
+[31m-    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.13.3" level="project" />[m
+     <orderEntry type="library" name="Maven: org.slf4j:jul-to-slf4j:1.7.30" level="project" />[m
+     <orderEntry type="library" name="Maven: jakarta.annotation:jakarta.annotation-api:1.3.5" level="project" />[m
+     <orderEntry type="library" name="Maven: org.springframework:spring-core:5.2.8.RELEASE" level="project" />[m
+[1mdiff --git a/pom.xml b/pom.xml[m
+[1mindex 01a53a9..84b7ea3 100644[m
+[1m--- a/pom.xml[m
+[1m+++ b/pom.xml[m
+[36m@@ -19,6 +19,20 @@[m
+ 	</properties>[m
+ [m
+ 	<dependencies>[m
+[32m+[m		[32m<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->[m
+[32m+[m		[32m<dependency>[m
+[32m+[m			[32m<groupId>org.apache.logging.log4j</groupId>[m
+[32m+[m			[32m<artifactId>log4j-core</artifactId>[m
+[32m+[m			[32m<version>2.14.0</version>[m
+[32m+[m		[32m</dependency>[m
+[32m+[m
+[32m+[m		[32m<!-- https://mvnrepository.com/artifact/javax.inject/javax.inject -->[m
+[32m+[m		[32m<dependency>[m
+[32m+[m			[32m<groupId>javax.inject</groupId>[m
+[32m+[m			[32m<artifactId>javax.inject</artifactId>[m
+[32m+[m			[32m<version>1</version>[m
+[32m+[m		[32m</dependency>[m
+[32m+[m
+ 		<dependency>[m
+ 			<groupId>org.springframework.boot</groupId>[m
+ 			<artifactId>spring-boot-starter</artifactId>[m
+[1mdiff --git a/src/main/java/com/example/demo/DemoApplication.java b/src/main/java/com/example/demo/DemoApplication.java[m
+[1mindex 24dcdf4..e03ec75 100644[m
+[1m--- a/src/main/java/com/example/demo/DemoApplication.java[m
+[1m+++ b/src/main/java/com/example/demo/DemoApplication.java[m
+[36m@@ -2,9 +2,6 @@[m [mpackage com.example.demo;[m
+ [m
+ import org.springframework.boot.SpringApplication;[m
+ import org.springframework.boot.autoconfigure.SpringBootApplication;[m
+[31m-import org.springframework.web.bind.annotation.GetMapping;[m
+[31m-import org.springframework.web.bind.annotation.RequestParam;[m
+[31m-import org.springframework.web.bind.annotation.RestController;[m
+ [m
+ @SpringBootApplication[m
+ public class DemoApplication {[m
